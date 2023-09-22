@@ -1,0 +1,15 @@
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\bin\Release\netcoreapp3.1\SuperMercado.DataAccess.deps.json
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\bin\Release\netcoreapp3.1\SuperMercado.DataAccess.dll
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\bin\Release\netcoreapp3.1\SuperMercado.DataAccess.pdb
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\bin\Release\netcoreapp3.1\SuperMercado.Models.dll
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\bin\Release\netcoreapp3.1\SuperMercado.Utilities.dll
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\bin\Release\netcoreapp3.1\SuperMercado.Models.pdb
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\bin\Release\netcoreapp3.1\SuperMercado.Utilities.pdb
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\obj\Release\netcoreapp3.1\SuperMercado.DataAccess.csproj.AssemblyReference.cache
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\obj\Release\netcoreapp3.1\SuperMercado.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\obj\Release\netcoreapp3.1\SuperMercado.DataAccess.AssemblyInfoInputs.cache
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\obj\Release\netcoreapp3.1\SuperMercado.DataAccess.AssemblyInfo.cs
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\obj\Release\netcoreapp3.1\SuperMercado.DataAccess.csproj.CoreCompileInputs.cache
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\obj\Release\netcoreapp3.1\SuperMercado.DataAccess.csproj.CopyComplete
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\obj\Release\netcoreapp3.1\SuperMercado.DataAccess.dll
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.DataAccess\obj\Release\netcoreapp3.1\SuperMercado.DataAccess.pdb

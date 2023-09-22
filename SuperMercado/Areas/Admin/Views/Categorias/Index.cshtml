@@ -1,0 +1,163 @@
+﻿
+@model SuperMercado.Models.Categoria
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<nav id="sidebar" class="bg-dark">
+    <div class="menuStyky">
+
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Agregar Categoría</h3>
+        </div>
+    </div>
+
+
+
+
+    <form method="POST" action="Javascript:;" enctype="multipart/form-data" accept-charset="UTF-8" data-Registrar="data-Registrar" id="RegistrarForm">
+
+        <div class="px-4 py-5">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idCategoria" />
+            <div class="">
+
+                <div class="form-group">
+                    <div>
+                        <label>Categoría</label>
+                        <small class="invalidCampo invalidSubcategoria"></small>
+                    </div>
+                    <div class="wrapper-demo mb-3" id="listadeCategoriasForm" style="display:none;">
+
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div>
+                        <label asp-for="Nombre"></label>
+                        <small class="invalidCampo invalidName"></small>
+                    </div>
+                    <div>
+                        <input asp-for="Nombre" class="form-control" autocomplete="off" name="Nombre" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label asp-for="Descripcion"></label>
+                    </div>
+                    <div>
+                        <textarea asp-for="Descripcion" rows="4" style="width:100%;" name="Descripcion"></textarea>
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group mb-2">
+                    <div>
+                        <label asp-for="Foto"></label>
+                        <small class="invalidCampo invalidimg"></small>
+                    </div>
+                    <div class="d-flex align-items-center mb-4">
+                        <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1 subirFoto" data-multiple-caption="{count} Archivos seleccionados" multiple />
+
+                        <label class="labelFile" for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" /></svg> <span style="display:inline;">Subir Archivo&hellip;</span></label>
+
+
+                        <span id="cancelarArchivos" onclick="cancelarArchivos('#file-1',this)" class="icon-cancel"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
+
+                        <span asp-validation-for="Foto" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group d-none">
+                    <div class="position-relative">
+                        <label for="Url-imagen">Imagen en linea</label>
+                    </div>
+                    <div>
+                        <input for="Url-imagen" type="text" name="Url-imagen" value="1" hidden autocomplete="off" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="text-center">
+                        <button id="btnAdd" class="btn btn-success" data-submit="">Registrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</nav>
+
+    <div id="Datalist">
+        <div class="row mx-3 justify-content-between">
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 cajaOptiones">
+                <div>
+                    <div class="buscador">
+                        <input type="search" value="" oninput="buscar(this.value.toLowerCase().trim().replaceAll('-',' '),'input')" placeholder="Buscar" />
+                        <span class="icon-search" onclick="buscar(this.parentElement.children[0].value.toLowerCase().trim().replaceAll('-',' '),'')"></span>
+                    </div>
+                    <input id="automaticoCheck" name="automaticoCheck" checked="checked" type="checkbox" />
+                    <label for="automaticoCheck">Busqueda automática</label>
+                </div>
+                <div class="wrapper-demo">
+                    <div id="ddContainer"></div>
+
+                </div>
+            </div>
+            <div class=" col-sm-12 col-md-6 col-lg-4 col-xl-3 cajaOptiones">
+                <div class="d-flex">
+                    <div>
+                        <div class="botonAgregar" id="sidebarCollapse">
+                            <span class="plusBTN"><span class="icon-plus"><span class="path1"></span><span class="path2"></span></span></span><span class="spanText">Categoría</span>
+                        </div>
+                        <div class="botonAgregar" id="sidebarCollapse2" data-boton="Sub">
+                            <span class="plusBTN"><span class="icon-plus"><span class="path1"></span><span class="path2"></span></span></span><span class="spanText">SubCategoría</span>
+                        </div>
+                    </div>
+                    <div class="d-flex botonAgregar">
+                        <input type="checkbox" value="" />
+                        <div class="wrapper-demo">
+                            <div id="ddCheckContainer"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrapper-demo">
+                    <div id="ddMostrarContainer"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="d-flex flex-sm-wrap-initial itemRowMenu mb-3">
+                <div class="col-md-2">
+                    logo
+                </div>
+                <div class="col-md-1 text-center">
+                    <span onclick="ordenar('categoria-ID',this.id,this)" id="sort-ID-none">ID <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                </div>
+                <div class="col-md-3 text-center">
+                    <span onclick="ordenar('categoria-Nombre',this.id,this)" id="categoria-Nombre-none">Nombre <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                </div>
+                <div class="col-md-3 text-center">
+                    <span onclick="ordenar('categoria-Descripcion',this.id,this)" id="sort-Descripcion-none">Descripcion <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                </div>
+                <div class="col-md-3 text-center">
+                    <span onclick="ordenar('categoria-acciones',this.id,this)" id="sort-acc-none">Acciones <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                </div>
+            </div>
+        </div>
+        <ul class="list" id="itemsTable">
+        </ul>
+        <ul class="pagination"></ul>
+    </div>
+    <div class="overlay"></div>
+    <div id="myModalPopUpImg" class="modalPopUpImg container-fluid" onclick="this.style.display='none'">
+        <span class="closePopUpImg">&times;</span>
+        <img class="modalPopUpImg-content" id="img01">
+        <div id="captionPopUpImg"></div>
+    </div>

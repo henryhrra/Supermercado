@@ -1,0 +1,353 @@
+﻿@page
+@using SuperMercado.Utilities
+@model RegisterModel
+@{
+    ViewData["Title"] = "Registrarse";
+    Layout = "~/Views/Shared/_LayoutRegister.cshtml";
+}
+
+
+<!-- multistep form -->
+<form id="msform" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
+    <!-- progressbar -->
+    <ul id="progressbar" class="d-none d-md-block d-lg-block">
+        <li class="active" milton='{"index":0,"class":".next"}'>Datos de inicio de sesión</li>
+        <li milton='{"index":1,"class":".next"}'>Datos Personales</li>
+        <li milton='{"index":-1,"class":".submit"}'>Datos Opcionales</li>
+    </ul>
+    <!-- fieldsets -->
+    <fieldset>
+        <h2 class="fs-title">Datos de inicio de sesión</h2>
+        <div class="position-relative">
+            <label asp-for="Input.Email" class="labelForm">Correo Electrónico<span asp-validation-for="Input.Email" class="text-danger validationSpan invalidCampo invalidCorreo"></span></label>
+        </div>
+        <div class="position-relative">
+            <i class="fas fa-envelope fomularioIcon"></i>
+            <input asp-for="Input.Email" type="text" class="form-control" />
+        </div>
+        <div class="position-relative">
+            <label asp-for="Input.Password" class="labelForm">Contraseña<span asp-validation-for="Input.Password" class="text-danger validationSpan invalidCampo invalidPass"></span></label>
+        </div>
+        <div class="position-relative">
+            <i class="fas fa-lock fomularioIcon"></i>
+            <input asp-for="Input.Password" class="form-control" />
+            <i milton="Input.Password" for="Input.ConfirmPassword" onclick="verPasswordOff(this,0)" class="fas fa-eye-slash verPasswordOff show"></i>
+            <i milton="Input.Password" onclick="verPassword(this,0)" class="fas fa-eye verPassword show"></i>
+        </div>
+        <div class="position-relative">
+            <label asp-for="Input.ConfirmPassword" class="labelForm">Confirmar Contraseña<span asp-validation-for="Input.ConfirmPassword" class="text-danger validationSpan invalidCampo invalidPassC"></span></label>
+        </div>
+        <div class="position-relative">
+            <i class="fas fa-lock fomularioIcon"></i>
+            <input asp-for="Input.ConfirmPassword" class="form-control" />
+            <i milton="Input.ConfirmPassword" for="Input.ConfirmPassword" onclick="verPasswordOff(this,1)" class="fas fa-eye-slash verPasswordOff show"></i>
+            <i milton="Input.ConfirmPassword" onclick="verPassword(this,1)" class="fas fa-eye verPassword show"></i>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        
+        @if (User.IsInRole(CNT.Admin))
+        {
+            <fieldset class="RadioRoles">
+                <label>
+                    <input type="radio" name="roleUser" value="@CNT.Admin" />
+                    <span>@CNT.Admin</span>
+                </label>
+                <label>
+                    <input type="radio" checked="checked" name="roleUser" value="@CNT.User" />
+                    <span>@CNT.User</span>
+                </label>
+            </fieldset>
+        }
+        else
+        {
+            <input type="radio" hidden checked="checked" name="roleUser" value="@CNT.User" />
+        }
+        
+        <button type="button" name="next" class="next action-button" milton="1" value="Next">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Siguiente
+        </button>
+    </fieldset>
+
+    <fieldset>
+        <h2 class="fs-title">Datos Personales</h2>
+        <div class="position-relative">
+            <label asp-for="Input.Nombres" class="labelForm">Nombres<small class="invalidCampo invalidName"></small> <span asp-validation-for="Input.Nombres" class="text-danger validationSpan"></span></label>
+        </div>
+        <div class="form-group position-relative">
+            <i class="fas fa-address-card fomularioIcon"></i>
+            <input asp-for="Input.Nombres" class="form-control" />
+        </div>
+        <div class="position-relative">
+            <label asp-for="Input.Apellidos" class="labelForm">Apellidos<small class="invalidCampo invalidApellido"></small><span asp-validation-for="Input.Apellidos" class="text-danger validationSpan"></span></label>
+        </div>
+        <div class="form-group position-relative">
+            <i class="fas fa-address-card fomularioIcon"></i>
+            <input asp-for="Input.Apellidos" class="form-control" />
+        </div>
+        <div class="position-relative">
+            <label asp-for="Input.PhoneNumber" class="labelForm">Número de contacto<small class="invalidCampo invalidPhone"></small> <span asp-validation-for="Input.PhoneNumber" class="text-danger validationSpan"></span></label>
+        </div>
+        <div class="form-group position-relative">
+            <i class="fas fa-mobile-alt fomularioIcon"></i>
+            <input asp-for="Input.PhoneNumber" class="form-control" />
+        </div>
+        <div class="position-relative">
+            <label asp-for="Input.Sexo" class="labelForm">Sexo<small class="invalidCampo invalidSex"></small></label>
+            <input asp-for="Input.Sexo" hidden />
+        </div>
+        <div class="form-group">
+            <div class="wrapper-demo">
+                <div id="ddSexo" class="wrapper-dropdown-3" tabindex="1">
+                    <i class="fas fa-venus-mars fomularioIcon"></i>
+                    <span id="ddSexoSpan">Seleccionar Sexo</span>
+                    <ul class="dropdown" id="DDSexo">
+                        <li><a href="#"><i class="fas fa-venus"></i>Femenino</a></li>
+                        <li><a href="#"><i class="fas fa-mars"></i>Masculino</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="position-relative">
+            <label asp-for="Input.Sexo" class="labelForm">Fecha de Nacimiento<small class="invalidCampo invalidFecha"></small> <span asp-validation-for="Input.Fecha_nacimiento" class="text-danger validationSpan"></span></label>
+        </div>
+        <div class="form-group mt-3">
+            <input asp-for="Input.Fecha_nacimiento" type="date" class="form-control" />
+
+        </div>
+        <button type="button" name="previous1" class="previous action-button" value="Previous">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Anterior
+        </button>
+        <button type="button" milton="2" name="next" class="next action-button" value="Next">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Siguiente
+        </button>
+    </fieldset>
+
+    <fieldset>
+        <h2 class="fs-title">Datos para entregas</h2>
+
+
+        <div class="position-relative">
+            <label asp-for="Input.Direccion_residencia" class="labelForm">Dirección de Residencia<small class="invalidCampo invalidDir"></small>  <span asp-validation-for="Input.Direccion_residencia" class="text-danger validationSpan"></span></label>
+        </div>
+        <div class="form-group position-relative">
+            <i class="fas fa-map-marker-alt fomularioIcon"></i>
+            <input asp-for="Input.Direccion_residencia" class="form-control" />
+
+        </div>
+
+        <div class="position-relative">
+            <label asp-for="Input.Ciudad" class="labelForm">Ciudad<span asp-validation-for="Input.Ciudad" class="invalidCampo invalidCiudad text-danger validationSpan"></span></label>
+        </div>
+        <div class="form-group position-relative">
+            <i class="fas fa-house-user fomularioIcon"></i>
+            <input asp-for="Input.Ciudad" class="form-control" />
+
+        </div>
+
+
+        <label asp-for="Input.Foto" class="labelForm">Fotografía<span asp-validation-for="Input.Foto" class="invalidCampo invalidimg text-danger validationSpan"></span></label>
+        <div class="d-flex align-items-center mb-4">
+            <input asp-for="Input.Foto" type="file" hidden class="form-control" />
+            <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1 subirFoto" data-multiple-caption="{count} Archivos seleccionados" multiple />
+
+            <label class="labelFile" for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" /></svg> <span style="display:inline;">Subir Archivo&hellip;</span></label>
+
+            <span id="cancelarArchivos" onclick="cancelarArchivos('#file-1',this)" class="icon-cancel"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
+        </div>
+
+        <button type="button" name="previous1" class="previous action-button" value="Previous">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Anterior
+        </button>
+        <button type="submit" name="submit" class="submit action-button" value="Submit">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Enviar
+        </button>
+    </fieldset>
+</form>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="~/js/validarRegistrarse.js"></script>
+    <script>
+
+        //jQuery time
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var left, opacity, scale; //fieldset properties which we will animate
+        var animating; //flag to prevent quick multi-click glitches
+
+        $(".next").click(function () {
+            if (!validar(this.getAttribute('milton'))) return;
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+
+            //activate next step on progressbar using the index of next_fs
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 50) + "%";
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'transform': 'scale(' + scale + ')',
+                        'position': 'absolute'
+                    });
+                    next_fs.css({ 'left': left, 'opacity': opacity });
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+
+        $(".previous").click(function () {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+
+            //de-activate current step on progressbar
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            //show the previous fieldset
+            previous_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale previous_fs from 80% to 100%
+                    scale = 0.8 + (1 - now) * 0.2;
+                    //2. take current_fs to the right(50%) - from 0%
+                    left = ((1 - now) * 50) + "%";
+                    //3. increase opacity of previous_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({ 'left': left });
+                    previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+        $(".submit").click(function () {
+            let data = document.querySelectorAll('li.active');
+            let index = JSON.parse(data[data.length - 1].getAttribute('milton'))
+            if (validar(index.index + 1)) {
+                if (index.class == '.submit') {
+
+                    $('.loading').toggleClass('hidden');
+                    $('.loading').attr('style','');
+                    document.getElementById('msform').submit();
+                }
+                else {
+                    $(index.class)[index.index].click();
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        })
+    </script>
+    <script>
+        var dd = new DropDown($('#ddSexo'));
+        $(document).click(function () {
+            $('.wrapper-dropdown-3').removeClass('active');
+        });
+
+
+
+        ; (function (document, window, index) {
+            var inputs = document.querySelectorAll('.inputfile');
+            Array.prototype.forEach.call(inputs, function (input) {
+                var label = input.nextElementSibling,
+                    labelVal = label.innerHTML;
+
+                input.addEventListener('change', function (e) {
+                    var fileName = '';
+                    if (this.files && this.files.length > 1) {
+                        fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+                    }
+                    else {
+                        fileName = e.target.value.split('\\').pop();
+                    }
+
+                    if (fileName) {
+                        document.getElementById('cancelarArchivos').style.display = 'block'
+                        label.querySelector('span').innerHTML = fileName;
+                    }
+                    else {
+                        document.getElementById('cancelarArchivos').style.display = 'none'
+                        console.log(document.querySelector('.invalidimg'))
+                        document.querySelector('.invalidimg').innerText = '';
+                        document.querySelector('.labelFile').setAttribute('style', '');
+                        label.innerHTML = labelVal;
+                    }
+                });
+
+                // correccion de bug en Firefox
+                input.addEventListener('focus', function () { input.classList.add('has-focus'); });
+                input.addEventListener('blur', function () { input.classList.remove('has-focus'); });
+            });
+        }(document, window, 0));
+
+        function verPasswordOff(e, i) {
+            let input = $('.verPasswordOff');
+            input[i].classList.remove('show');
+            input = $('.verPassword');
+            input[i].classList.remove('show');
+            document.querySelector('[name="' + e.getAttribute('milton') + '"]').type = 'text';
+        }
+        function verPassword(e, i) {
+
+            let input = $('.verPassword');
+            input[i].classList.add('show');
+            input = $('.verPasswordOff')
+            input[i].classList.add('show');
+            document.querySelector('[name="' + e.getAttribute('milton') + '"]').type = 'password';
+
+        }
+    </script>
+
+}

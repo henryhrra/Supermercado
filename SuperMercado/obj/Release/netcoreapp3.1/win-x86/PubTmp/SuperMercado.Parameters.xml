@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="DeTodo" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo\ 6\\Periodo\ 3\\Desarrollo\ de\ aplicaciones\ web\\Supermercado\\SuperMercado\\SuperMercado\\obj\\Release\\netcoreapp3\.1\\win-x86\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

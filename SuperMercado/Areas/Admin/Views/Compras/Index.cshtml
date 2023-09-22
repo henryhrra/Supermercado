@@ -1,0 +1,158 @@
+﻿@model SuperMercado.Models.Compra
+@{
+    ViewData["Title"] = "DeTodo Admin Page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<nav id="sidebar" class="bg-dark">
+    <div class="menuStyky">
+
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Agregar Nueva Compra</h3>
+        </div>
+    </div>
+
+    <form method="POST" action="Javascript:;" accept-charset="UTF-8" data-Registrar="data-Registrar" id="RegistrarForm">
+        <div class="px-4 ">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="px-4 pt-4">
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label for="listadeProveedoresForm">Proveedor</label>
+                        <small class="invalidCampo"></small>
+                    </div>
+                    <div class="wrapper-demo mb-3" id="listadeProveedoresForm">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label asp-for="idProducto"></label>
+                        <small class="invalidCampo invalidProducto"></small>
+                    </div>
+                    <div class="wrapper-demo mb-3" id="listadeProductosForm">
+                        <div id="ddlistadeProductos" class="wrapper-dropdown-3" tabindex="1" style="min-width: 260px;">
+                            <span id="ddlistadeProductosSpan" data-ID>Seleccionar Producto</span>
+                            <ul class="dropdown" id="DDlistadeProductos">
+                                <li><a href="#" data-id="1">Primero Seleccionar Proveedor</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label asp-for="Precio_Compra"></label>
+                        <small class="invalidCampo invalidPrecioCompra"></small>
+                    </div>
+                    <div>
+                        <input asp-for="Precio_Compra" class="form-control" autocomplete="off" name="Precio_Compra" maxlength="50" />
+                        <span asp-validation-for="Precio_Compra" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label asp-for="Cantidad"></label>
+                        <small class="invalidCampo invalidCantidad"></small>
+                    </div>
+                    <div>
+                        <input asp-for="Cantidad" class="form-control" autocomplete="off" name="Cantidad" maxlength="50" />
+                        <span asp-validation-for="Cantidad" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label asp-for="Descripcion"></label>
+                    </div>
+                    <div>
+                        <textarea asp-for="Descripcion" rows="4" style="width:100%;" name="Descripcion" maxlength="100"></textarea>
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label asp-for="Fecha_compra"></label>
+                        <small class="invalidCampo invalidFecha"></small>
+                    </div>
+                    <div>
+                        <input asp-for="Fecha_compra" class="form-control" autocomplete="off" name="Fecha_compra" maxlength="50" />
+                        <span asp-validation-for="Fecha_compra" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <button id="btnAdd" class="btn btn-success">Registrar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</nav>
+
+<div id="Datalist">
+    <div class="row mx-3 justify-content-between">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 cajaOptiones">
+            <div>
+                <div class="buscador">
+                    <input type="search" value="" oninput="buscar(this.value.toLowerCase().trim().replaceAll('-',' '),'input')" placeholder="Buscar" />
+                    <span class="icon-search" onclick="buscar(this.parentElement.children[0].value.toLowerCase().trim().replaceAll('-',' '),'')"></span>
+                </div>
+                <input id="automaticoCheck" name="automaticoCheck" type="checkbox" />
+                <label for="automaticoCheck">Busqueda automatica</label>
+            </div>
+            <div id="ddContainer"></div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 cajaOptiones">
+            <div class="d-flex">
+                <div class="botonAgregar" id="sidebarCollapse">
+                    <span class="plusBTN"><span class="icon-plus"><span class="path1"></span><span class="path2"></span></span></span><span class="spanText">Compra</span>
+                </div>
+                <div class="d-flex botonAgregar">
+                    <input type="checkbox" value="" />
+                    <div id="ddCheckContainer"></div>
+                </div>
+            </div>
+            <div id="ddMostrarContainer"></div>
+        </div>
+    </div>
+    <div>
+        <div class="d-flex flex-sm-wrap-initial itemRowMenu mb-3">
+
+            <div class="d-md-none d-sm-block d-lg-block col-md-1 text-center">
+                <span onclick="ordenar('compra-ID',this.id,this)" id="sort-ID-none">ID <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+            <div class="col-md-3 col-lg-4 text-center">
+                <span onclick="ordenar('compra-Producto',this.id,this)" id="compra-Nombre-none">Producto <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+            <div class="col-md-2 text-center">
+                <span onclick="ordenar('compra-Proveedor',this.id,this)" id="sort-Descripcion-none">Proveedor <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+            <div class="col-md-2 col-lg-1 text-center">
+                <span onclick="ordenar('compra-cantidad',this.id,this)" id="sort-fecha-none">Cantidad<span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+            <div class="col-md-2 text-center">
+                <span onclick="ordenar('compra-precio',this.id,this)" id="sort-tel-none">Precio <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+            <div class="col-md-2 col-lg-1 text-center">
+                <span onclick="ordenar('compra-total',this.id,this)" id="sort-tel-none">Total <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+            <div class="col-md-1 text-center">
+                <span onclick="ordenar('compra-acciones',this.id,this)" id="sort-acc-none">Acciones <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+        </div>
+    </div>
+    <ul class="list" id="itemsTable"></ul>
+    <ul class="pagination"></ul>
+</div>
+
+<div class="overlay"></div>
+<div id="myModalPopUpImg" class="modalPopUpImg container-fluid" onclick="this.style.display='none'">
+    <span class="closePopUpImg">&times;</span>
+    <img class="modalPopUpImg-content" id="img01">
+    <div id="captionPopUpImg"></div>
+</div>

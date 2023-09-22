@@ -1,0 +1,267 @@
+﻿
+@model SuperMercado.Models.Sucursal
+@{
+    ViewData["Title"] = "Sucursales - Aministración";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<ul class="nav nav-pills mb-5">
+    <li class=""><a data-toggle="pill" href="#Sucursales">Sucursales</a></li>
+    <li><a id="departamentosMunicipios" data-toggle="pill" href="#DetMun">Departamentos y Municipios</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="Sucursales" class="tab-pane fade in active">
+        <div id="Datalist">
+            <div class="row mx-3 justify-content-between">
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 cajaOptiones">
+                    <div>
+                        <div class="buscador">
+                            <input type="search" value="" oninput="buscar(this.value.toLowerCase().trim().replaceAll('-',' '),'input')" placeholder="Buscar" />
+                            <span class="icon-search" onclick="buscar(this.parentElement.children[0].value.toLowerCase().trim().replaceAll('-',' '),'')"></span>
+                        </div>
+                        <input id="automaticoCheck" name="automaticoCheck" type="checkbox" checked="checked" />
+                        <label for="automaticoCheck">Busqueda automática</label>
+                    </div>
+                    <div class="wrapper-demo">
+                        <div id="dd" class="wrapper-dropdown-3" tabindex="1">
+                            <span id="FiltroContent">Todo</span>
+                            <ul class="dropdown" id="DDFiltro">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 cajaOptiones">
+                    <div class="d-flex">
+                        <div class="botonAgregar" id="sidebarCollapse">
+                            <span class="plusBTN"><span class="icon-plus"><span class="path1"></span><span class="path2"></span></span></span><span class="spanText">Sucursal</span>
+                        </div>
+                        <div class="d-flex botonAgregar">
+                            <input type="checkbox" value="" />
+                            <div class="wrapper-demo">
+                                <div id="ddCheck" class="wrapper-dropdown-1" tabindex="1">
+                                    <ul class="dropdown" tabindex="1">
+                                        <li><a href="#">Borrar</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrapper-demo">
+                        <div id="ddMostrar" class="wrapper-dropdown-3" tabindex="1">
+                            <span id="MostrarContent">Mostrar 5</span>
+                            <ul class="dropdown" id="mostrarDD">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <div class="d-flex flex-sm-wrap-initial itemRowMenu mb-3">
+                    <div class="col-md-1 text-center">
+                        <span onclick="ordenar('sucursal-ID',this.id,this)" id="sort-ID-none">ID <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <span onclick="ordenar('sucursal-Nombre',this.id,this)" id="sucursal-Nombre-none">Nombre <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span onclick="ordenar('sucursal-Departamento',this.id,this)" id="sort-Departamento-none">Departamento <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span onclick="ordenar('sucursal-Municipio',this.id,this)" id="sort-municipio-none">Municipio<span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span onclick="ordenar('sucursal-Telefono',this.id,this)" id="sort-tel-none">Telénono <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span onclick="ordenar('sucursal-acciones',this.id,this)" id="sort-acc-none">Acciones <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                    </div>
+                </div>
+            </div>
+            <ul class="list" id="itemsTable"></ul>
+            <ul class="pagination"></ul>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="DetMun" class="tab-pane fade">
+        <div id="Datalist2">
+            <div class="row mx-3 justify-content-between">
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 cajaOptiones">
+                    <div>
+                        <div class="buscador">
+                            <input type="search" value="" oninput="buscar2(this.value.toLowerCase().trim().replaceAll('-',' '),'input')" placeholder="Buscar" />
+                            <span class="icon-search" onclick="buscar2(this.parentElement.children[0].value.toLowerCase().trim().replaceAll('-',' '),'')"></span>
+                        </div>
+                        <input id="automaticoCheck2" name="automaticoCheck" type="checkbox" checked="checked" />
+                        <label for="automaticoCheck2">Busqueda automática</label>
+                    </div>
+                    <div class="wrapper-demo">
+                        <div id="dd2" class="wrapper-dropdown-3" tabindex="1">
+                            <span id="FiltroContent2">Todo</span>
+                            <ul class="dropdown" id="DDFiltro2">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 cajaOptiones">
+                    <div class="d-flex">
+                        <div>
+
+                            <div class="botonAgregar" id="sidebarCollapse" data-boton="Det">
+                                <span class="plusBTN"><span class="icon-plus"><span class="path1"></span><span class="path2"></span></span></span><span class="spanText">Departamento</span>
+                            </div>
+                            <div class="botonAgregar" id="sidebarCollapse2" data-boton="Mun">
+                                <span class="plusBTN"><span class="icon-plus"><span class="path1"></span><span class="path2"></span></span></span><span class="spanText">Municipio</span>
+                            </div>
+                        </div>
+                        <div class="d-flex botonAgregar">
+                            <input type="checkbox" value="" />
+                            <div class="wrapper-demo">
+                                <div id="ddCheck2" class="wrapper-dropdown-1" tabindex="1">
+                                    <ul class="dropdown" tabindex="1">
+                                        <li><a>Borrar</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrapper-demo">
+                        <div id="ddMostrar2" class="wrapper-dropdown-3" tabindex="1">
+                            <span id="MostrarContent2">Mostrar 5</span>
+                            <ul class="dropdown" id="mostrarDD2">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <div class="d-flex flex-sm-wrap-initial itemRowMenu mb-3">
+                    <div class="col-md-4 text-center">
+                        <span onclick="ordenar2('departamento-ID',this.id,this)" id="sort-departamento-ID-none">ID <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <span onclick="ordenar2('departamento-Nombre',this.id,this)" id="departamento-Nombre-none">Nombre <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <span onclick="ordenar2('departamento-acciones',this.id,this)" id="sort-acc-none">Acciones <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+                    </div>
+                </div>
+            </div>
+            <ul class="list" id="itemsTable2"></ul>
+            <ul class="pagination"></ul>
+        </div>
+    </div>
+   
+  
+</div>
+<nav id="sidebar" class="bg-dark">
+    <div id="dismiss">
+        <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <div class="sidebar-header">
+        <h3>Agregar Sucursal</h3>
+    </div>
+
+
+
+
+    <form method="POST" action="Javascript:;" accept-charset="UTF-8" data-Registrar="data-Registrar" id="RegistrarForm" novalidate>
+        <div class="px-4 py-5">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="">
+            <div class="form-group">
+                <div>
+                    <label asp-for="Nombre"></label>
+                    <small class="invalidCampo invalidName"></small>
+                </div>
+                <div>
+                    <input asp-for="Nombre" class="form-control" autocomplete="off" name="Nombre" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group position-relative">
+                <div>
+                    <label>Departamento <small class="invalidCampo invalidDepartamento"></small></label>
+                    
+                </div>
+                <div class="wrapper-demo mb-3" id="listadeDepartamentosForm">
+
+                </div>
+                <span data-boton="Det" class="icon-plus agregarForm"><span class="path1"></span><span class="path2"></span></span>
+            </div>
+            <div class="form-group position-relative">
+                <div>
+                    <label>Municipio</label>
+                    <small class="invalidCampo invalidMunicipio"></small>
+                </div>
+                <div class="wrapper-demo mb-3" id="listadeMunicipiosForm">
+
+                </div>
+                <span data-boton="Mun" class="icon-plus agregarForm"><span class="path1"></span><span class="path2"></span></span>
+            </div>
+            <div>
+
+            <div class="form-group">
+                <div>
+                    <label asp-for="Ciudad"></label>
+                    <small class="invalidCampo invalidCiudad"></small>
+                </div>
+                <div>
+                    <input asp-for="Ciudad" type="text" name="Ciudad" autocomplete="off" required="false" />
+                    <span asp-validation-for="Ciudad" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <label asp-for="Direccion"></label>
+                    <small class="invalidCampo invalidDir"></small>
+                </div>
+                <div>
+                    <input asp-for="Direccion" type="text" name="Direccion" autocomplete="off"/>
+                    <span asp-validation-for="Direccion" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label asp-for="Telefono"></label>
+                    <small class="invalidCampo invalidPhone"></small>
+                </div>
+                <div>
+                    <input asp-for="Telefono" type="text" name="telefono" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+            </div>
+
+            </div>
+                <div class="form-group">
+                    <div>
+                        <button id="btnAdd" class="btn btn-success">Registrar</button>
+                    </div>
+                </div>
+
+        </div>
+        </div>
+
+    </form>
+</nav>
+
+
+
+<div class="overlay"></div>
+
+<div id="myModalPopUpImg" class="modalPopUpImg container-fluid" onclick="this.style.display='none'">
+    <span class="closePopUpImg">&times;</span>
+    <img class="modalPopUpImg-content" id="img01">
+    <div id="captionPopUpImg"></div>
+</div>

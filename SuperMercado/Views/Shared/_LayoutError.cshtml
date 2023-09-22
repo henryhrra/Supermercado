@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página no encontrada</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/animate.min.css" />
+    <link rel="stylesheet" href="~/css/error.css" />
+    <script src="~/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+                <div class="mx-2">
+                    @RenderBody()
+                </div>
+
+    <div class="overlay"></div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/jquery-3.3.1.slim.min.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/error.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

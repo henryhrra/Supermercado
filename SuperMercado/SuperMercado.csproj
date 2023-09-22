@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-SuperMercado-BA7D4160-FF18-4F2D-9079-AC074E500300</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\imgs\categorias\3c86ec9f-f38d-4381-8c0e-b6bc4dbabd7a9fcbfc5c-6902-498d-8237-64d176e50a1149c2a64a-9f29-4c96-8182-a903484a5ef0sdfsdf.png\**" />
+    <Compile Remove="wwwroot\imgs\categorias\a7031998-501c-4c02-8035-365095ec7c919fcbfc5c-6902-498d-8237-64d176e50a1149c2a64a-9f29-4c96-8182-a903484a5ef0sdfsdf.png\**" />
+    <Content Remove="wwwroot\imgs\categorias\3c86ec9f-f38d-4381-8c0e-b6bc4dbabd7a9fcbfc5c-6902-498d-8237-64d176e50a1149c2a64a-9f29-4c96-8182-a903484a5ef0sdfsdf.png\**" />
+    <Content Remove="wwwroot\imgs\categorias\a7031998-501c-4c02-8035-365095ec7c919fcbfc5c-6902-498d-8237-64d176e50a1149c2a64a-9f29-4c96-8182-a903484a5ef0sdfsdf.png\**" />
+    <EmbeddedResource Remove="wwwroot\imgs\categorias\3c86ec9f-f38d-4381-8c0e-b6bc4dbabd7a9fcbfc5c-6902-498d-8237-64d176e50a1149c2a64a-9f29-4c96-8182-a903484a5ef0sdfsdf.png\**" />
+    <EmbeddedResource Remove="wwwroot\imgs\categorias\a7031998-501c-4c02-8035-365095ec7c919fcbfc5c-6902-498d-8237-64d176e50a1149c2a64a-9f29-4c96-8182-a903484a5ef0sdfsdf.png\**" />
+    <None Remove="wwwroot\imgs\categorias\3c86ec9f-f38d-4381-8c0e-b6bc4dbabd7a9fcbfc5c-6902-498d-8237-64d176e50a1149c2a64a-9f29-4c96-8182-a903484a5ef0sdfsdf.png\**" />
+    <None Remove="wwwroot\imgs\categorias\a7031998-501c-4c02-8035-365095ec7c919fcbfc5c-6902-498d-8237-64d176e50a1149c2a64a-9f29-4c96-8182-a903484a5ef0sdfsdf.png\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.21" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.21">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Supermercado.DataAccess\SuperMercado.DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\imgs\proveedores\pepsi.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\fonts\icomoon.svg" />
+  </ItemGroup>
+
+</Project>

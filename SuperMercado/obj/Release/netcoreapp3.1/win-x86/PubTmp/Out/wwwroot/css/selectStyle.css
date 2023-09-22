@@ -1,0 +1,108 @@
+
+.wrapperSelect {
+  margin: 1em auto!important;
+  text-align: left!important;
+}
+.selectContainer {
+  border: 1px solid #eeeeee!important;
+  background: #ffffff!important;
+  max-width: 30em!important;
+  padding: 1em!important;
+  margin-bottom: 1em!important;
+}
+.custom-select {
+  position: relative!important;
+}
+.select-css {
+  display: block!important;
+  font-size: 1em!important;
+  font-family: sans-serif!important;
+  font-weight: 700!important;
+  color: #444!important;
+  line-height: 1.3!important;
+  padding: 0.6em 1.4em 0.5em 0.8em!important;
+  width: 100%!important;
+  max-width: 100%!important;
+  box-sizing: border-box!important;
+  margin: 0!important;
+  border: 1px solid #aaa!important;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04)!important;
+  border-radius: 0.25em!important;
+  -moz-appearance: none!important;
+  -webkit-appearance: none!important;
+  appearance: none!important;
+  background-color: #fff!important;
+  position: relative!important;
+  z-index: 10!important;
+}
+.select-css::-ms-expand {
+  display: none!important;
+}
+.select-css:hover {
+  border-color: #888!important;
+}
+.select-css:focus {
+  border: 2px dashed blue!important;
+  color: #222!important;
+  outline: none!important;
+}
+.custom-select-icons {
+  position: absolute!important;
+  top: 0.5em!important;
+  right: 0.5em!important;
+  z-index: 20!important;
+  border: 1px solid white!important;
+  background: white!important;
+}
+.custom-select-options {
+  border: 1px solid #aaa!important;
+  border-radius: 0 0 0.25em 0.25em!important;
+  line-height: 1.5!important;
+  margin: 0!important;
+  margin-top: -0.5em!important;
+  padding: 0!important;
+  list-style-type: none!important;
+  font-weight: normal!important;
+  cursor: pointer!important;
+  z-index: 2!important;
+  position: absolute!important;
+  width: calc(100% - 1px)!important;
+  background-color: #ffffff!important;
+}
+.custom-select-options li {
+  padding: 1em!important;
+}
+.custom-select-options li:hover {
+  background: blue!important;
+  color: #fff!important;
+  border: 1px solid blue!important;
+  border-width: 0 0 0 1px!important;
+}
+
+.custom-select-options li:focus {
+  border: 1px solid blue!important;
+}
+.icon {
+  fill: ButtonText!important;
+  pointer-events: none!important;
+}
+@media screen and (-ms-high-contrast: active) {
+  .icon {
+    fill: ButtonText!important;
+  }
+}
+.hidden-all {
+  display: none!important;
+}
+.hidden-visually {
+  position: absolute!important;
+  width: 1px!important;
+  height: 1px!important;
+  padding: 0!important;
+  overflow: hidden!important;
+  clip: rect(0, 0, 0, 0)!important;
+  white-space: nowrap!important;
+  -webkit-clip-path: inset(50%)!important;
+  clip-path: inset(50%)!important;
+  border: 0!important;
+}

@@ -1,0 +1,795 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+* {
+    margin:0;
+}
+:root {
+    --headerBg: #c7d8d8;
+}
+body {
+    background: url("../imgs/bg.png");
+}
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+.loading {
+    width: 100vw;
+    height: 100vh;
+    transition: all;
+    transition-duration: 1s;
+    background: #343a40;
+    position: fixed;
+    z-index: 9999999999999999999999;
+    top: 0;
+    left: 0;
+}
+
+.loading.hidden  {
+    width: 0vw;
+    height: 0vh;
+    opacity:0;
+}
+
+.book {
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    margin: 0 auto;
+    border: 5px solid #ecf0f1;
+    width: 100px;
+    height: 60px;
+}
+
+.book__page {
+    position: absolute;
+    left: 50%;
+    top: -5px;
+    margin: 0 auto;
+    border-top: 5px solid #ecf0f1;
+    border-bottom: 5px solid #ecf0f1;
+    border-right: 5px solid #ecf0f1;
+    background: #3498db;
+    width: 50px;
+    height: 60px;
+    transform-origin: 0% 50%;
+    -webkit-animation: flip 1.2s infinite linear;
+    animation: flip 1.2s infinite linear;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+    .book__page:nth-child(1) {
+        z-index: -1;
+        -webkit-animation-delay: 1.4s;
+        animation-delay: 1.4s;
+    }
+
+    .book__page:nth-child(2) {
+        z-index: -2;
+        -webkit-animation-delay: 2.8s;
+        animation-delay: 2.8s;
+    }
+
+    .book__page:nth-child(3) {
+        z-index: -3;
+        -webkit-animation-delay: 4.2s;
+        animation-delay: 4.2s;
+    }
+
+@-webkit-keyframes flip {
+    0% {
+        transform: perspective(600px) rotateY(0deg);
+    }
+
+    20% {
+        background: #217dbb;
+    }
+
+    29.9% {
+        background: #217dbb;
+    }
+
+    30% {
+        transform: perspective(200px) rotateY(-90deg);
+        background: #3498db;
+    }
+
+    54.999% {
+        opacity: 1;
+    }
+
+    55% {
+        opacity: 0;
+    }
+
+    60% {
+        transform: perspective(200px) rotateY(-180deg);
+        background: #3498db;
+    }
+
+    100% {
+        transform: perspective(200px) rotateY(-180deg);
+        background: #3498db;
+    }
+}
+
+@keyframes flip {
+    0% {
+        transform: perspective(600px) rotateY(0deg);
+    }
+
+    20% {
+        background: #217dbb;
+    }
+
+    29.9% {
+        background: #217dbb;
+    }
+
+    30% {
+        transform: perspective(200px) rotateY(-90deg);
+        background: #3498db;
+    }
+
+    54.999% {
+        opacity: 1;
+    }
+
+    55% {
+        opacity: 0;
+    }
+
+    60% {
+        transform: perspective(200px) rotateY(-180deg);
+        background: #3498db;
+    }
+
+    100% {
+        transform: perspective(200px) rotateY(-180deg);
+        background: #3498db;
+    }
+}
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+.iconoMenuJPG {
+    mix-blend-mode: multiply;
+    filter: brightness(110%);
+}
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+
+.cabecera {
+    background: rgb(52 58 64);
+    color: antiquewhite;
+    text-align: center;
+}
+.menuFondo {
+    background: rgb(0 0 0 / 0.39);
+    color: antiquewhite;
+    min-width: 200px;
+}
+
+.fondo {
+    background: url("../imgs/bg.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+@-webkit-keyframes fondoPrincipal {
+    0% {
+        background-position: 43% 0%
+    }
+
+    50% {
+        background-position: 58% 100%
+    }
+
+    100% {
+        background-position: 43% 0%
+    }
+}
+
+@-moz-keyframes fondoPrincipal {
+    0% {
+        background-position: 43% 0%
+    }
+
+    50% {
+        background-position: 58% 100%
+    }
+
+    100% {
+        background-position: 43% 0%
+    }
+}
+
+@-o-keyframes fondoPrincipal {
+    0% {
+        background-position: 43% 0%
+    }
+
+    50% {
+        background-position: 58% 100%
+    }
+
+    100% {
+        background-position: 43% 0%
+    }
+}
+
+@keyframes fondoPrincipal {
+    0% {
+        background-position: 43% 0%
+    }
+
+    50% {
+        background-position: 58% 100%
+    }
+
+    100% {
+        background-position: 43% 0%
+    }
+}
+.navnav {
+        box-shadow: 4px 15px 20px black;
+}
+.icon-magnifying-glassDiv {
+    background: #292521;
+    width: 40px!important;
+    height: 40px;
+    position: absolute;
+    top: -3px;
+    right: -7px;
+    border-radius: 50%;
+    overflow: hidden;
+    outline: none;
+    border: none;
+}
+.icon-magnifying-glassDiv:hover {
+    overflow: visible;
+}
+.buscador {
+    background: white;
+    border-radius: 25px;
+    position: relative;
+}
+    .buscador.sss {
+        background: white;
+        border-radius: 25px;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;
+        z-index: 19;
+        box-shadow: 4px 15px 20px black;
+    }
+    .buscador span {
+        padding-right: 0px;
+        font-size: 2.8rem;
+        position: absolute;
+        right: -7px;
+        top:3px;
+        color: turquoise;
+    }
+        .buscador span.sss {
+            padding-right: 0px;
+            font-size: 2.8rem;
+            position: absolute;
+            right: -3px;
+            color: turquoise;
+        }
+    .buscador input {
+        color: black !important;
+        background: none;
+        outline: none;
+        border: none;
+        text-align: center;
+        padding: 5px 20px 5px 53px;
+        /* margin-right: -36px !important; */
+        width: 94%;
+    } 
+    .buscador input.sss {
+        color: black !important;
+        background: none;
+        outline: none;
+        border: none;
+        text-align: center;
+        padding: 5px 20px 5px 53px;
+        /* margin-right: -36px !important; */
+        width: 94%;
+    }
+.containerHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menusLateral li {
+    /*height: 100%;*/
+    list-style: none;
+    padding: 5px 0px 5px 20px;
+    border-bottom: #343a40 solid 1px;
+    color: white;
+    font-size: 1.3rem;
+    transition: All;
+    transition-duration: 1s;
+    min-height: 50px;
+}
+    .menusLateral li.active {
+        height: 100%;
+        background: #1d8787;
+        border-radius: 55px;
+        min-height: 50px;
+    }
+    .menusLateral li:hover {
+        background: #3ba5a5;
+        cursor: pointer;
+        border-radius: 55px;
+    }
+@media (min-width: 576px) {
+
+    .col-sm-11 {
+        -ms-flex: 0 0 32.666667% !important;
+        flex: 0 0 32.666667% !important;
+        max-width: 91.666667% !important;
+    }
+}
+
+    /*****************************************************************************/
+@media (max-width: 768px) {
+
+  
+    .menusLateral li {
+        float: left;
+        text-align: center !important;
+        font-size: 0rem;
+    }
+    .menusLateral li :nth-child(2) {
+        display:none;
+    }
+
+    .fomularioMilton fieldset {
+        box-sizing: border-box;
+        margin: 0 auto !important;
+    }
+}
+
+/**************************************************/
+
+
+.logindialog {
+    top: 8px;
+    right: 0;
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid black;
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.logindialog fieldset button:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+}
+
+.logindialog fieldset button span {
+    position: absolute;
+    display: block;
+}
+
+.logindialog {
+    max-width: 700px;
+    margin: 50px auto !important;
+    text-align: center;
+    position: relative;
+}
+    .logindialog fieldset {
+        background: #00000087;
+        border: 0 none;
+        border-radius: 3px;
+        box-shadow: 0 10px 21px 25px rgb(0 0 0 / 40%);
+        padding: 18px 17px;
+        box-sizing: border-box;
+        width: 400px;
+        margin: 0 0% !important;
+        position: relative;
+    }
+
+        /*Hide all except first fieldset*/
+        .logindialog fieldset:not(:first-of-type) {
+            display: none;
+        }
+    /*inputs*/
+    .logindialog [name="previous"], .logindialog [name="next"], .logindialog [name="submit"] {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        margin-bottom: 10px !important;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: montserrat;
+        color: #2c3e50;
+        font-size: 1.2rem;
+    }
+
+    .logindialog [type="text"],
+    .logindialog [type="email"],
+    .logindialog [type="password"],
+    .logindialog [type="date"] {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        height: 30px;
+        margin: 0 0 1em !important;
+        padding: 1em !important;
+        border: 1px solid #ccc !important;
+        border-radius: 1.5em !important;
+        background: #fff !important;
+        resize: none !important;
+        outline: none !important;
+    }
+
+    .logindialog [type="password"] {
+        padding-right: 3em !important;
+    }
+
+    .logindialog textarea {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        margin-bottom: 10px !important;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: montserrat;
+        color: #2c3e50;
+        font-size: 1.2rem;
+    }
+    /*buttons*/
+    .logindialog .action-button {
+        position: relative !important;
+        display: inline-block !important;
+        padding: 10px 20px !important;
+        color: #03e9f4 !important;
+        font-size: 16px !important;
+        text-decoration: none !important;
+        text-transform: uppercase;
+        overflow: hidden !important;
+        transition: .5s;
+        margin-top: 40px !important;
+        letter-spacing: 4px !important;
+        background: none !important;
+        border: none !important;
+        width: 150px;
+        border-radius: 0px !important;
+        outline: none;
+    }
+/*
+        .logindialog .action-button {
+        width: 100px;
+        background: #27ae60;
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 1px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 5px;
+    }
+*/
+.login-box form button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    background: none;
+    border: none;
+}
+
+.logindialog fieldset [name="previous"] span:nth-child(1), .logindialog fieldset [name="next"] span:nth-child(1), .logindialog fieldset [name="submit"] span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+}
+
+.logindialog fieldset [name="previous"] span:nth-child(2), .logindialog fieldset [name="next"] span:nth-child(2), .logindialog fieldset [name="submit"] span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+.logindialog fieldset [name="previous"] span:nth-child(3), .logindialog fieldset [name="next"] span:nth-child(3), .logindialog fieldset [name="submit"] span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+.logindialog fieldset [name="previous"] span:nth-child(4), .logindialog fieldset [name="next"] span:nth-child(4), .logindialog fieldset [name="submit"] span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+
+
+.fomularioMilton fieldset [name="previous"] span:nth-child(1), .fomularioMilton fieldset [name="next"] span:nth-child(1), .fomularioMilton fieldset [name="submit"] span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+}
+
+.fomularioMilton fieldset [name="previous"] span:nth-child(2), .fomularioMilton fieldset [name="next"] span:nth-child(2), .fomularioMilton fieldset [name="submit"] span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+.fomularioMilton fieldset [name="previous"] span:nth-child(3), .fomularioMilton fieldset [name="next"] span:nth-child(3), .fomularioMilton fieldset [name="submit"] span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+.fomularioMilton fieldset [name="previous"] span:nth-child(4), .fomularioMilton fieldset [name="next"] span:nth-child(4), .fomularioMilton fieldset [name="submit"] span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+.fomularioMilton fieldset button:hover {
+    background: #000000;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #259399, 0 0 25px #259399, 0 0 50px #259399, 0 0 100px #259399;
+}
+.fomularioMilton fieldset button span {
+    position: absolute;
+    display: block;
+}
+
+.fomularioMilton {
+    max-width: 700px;
+    margin: 50px auto ;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+    .fomularioMilton fieldset {
+        background: #00000087;
+        border: 0 none;
+        border-radius: 3px;
+        box-shadow: 0 10px 21px 25px rgb(0 0 0 / 40%);
+        padding: 20px 30px;
+        box-sizing: border-box;
+        margin: 0 auto ;
+        position: relative;
+        max-width:500px;
+    }
+
+        /*Hide all except first fieldset*/
+        .fomularioMilton fieldset:not(:first-of-type) {
+            display: none;
+        }
+    /*inputs*/
+    .fomularioMilton [name="previous"], .fomularioMilton [name="next"], .fomularioMilton [name="submit"] {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        margin-bottom: 10px ;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: montserrat;
+        color: #2c3e50;
+        font-size: 1.2rem;
+    }
+
+    .fomularioMilton [type="text"],
+    .fomularioMilton [type="email"],
+    .fomularioMilton [type="password"],
+    .fomularioMilton [type="date"] {
+        box-sizing: border-box;
+        width: 100%;
+        height: 30px;
+        margin: 0 0 1em;
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 1.5em;
+        background: #fff;
+        resize: none;
+        outline: none;
+        padding-left: 2.5rem !important;
+    }
+
+    .fomularioMilton [type="password"] {
+        padding-right: 3em ;
+    }
+
+    .fomularioMilton textarea {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        margin-bottom: 10px ;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: montserrat;
+        color: #2c3e50;
+        font-size: 1.2rem;
+    }
+    /*buttons*/
+    .fomularioMilton .action-button {
+        position: relative ;
+        display: inline-block ;
+        padding: 10px 20px ;
+        color: #03e9f4 ;
+        font-size: 16px ;
+        text-decoration: none ;
+        text-transform: uppercase;
+        overflow: hidden ;
+        transition: .5s;
+        margin-top: 40px ;
+        letter-spacing: 4px ;
+        background: none ;
+        border: none ;
+        width: 150px;
+        border-radius: 0px ;
+        outline: none;
+    }
+
+    .fomularioMilton label {
+        color: antiquewhite;
+    }
+
+    .fomularioMilton a:hover {
+        color: antiquewhite;
+    }
+
+@media (max-width: 992px) {
+    .logindialog {
+        top: 46px;
+        right: 0;
+    }
+}
+
+.fomularioIcon {
+    font-size: 1.2rem;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    color:slategray;
+}
+.actionMenu form button {
+    width: 100%;
+    color: #8aa8bd!important;
+    text-transform: initial !important;
+}
+
+.wrapper-dropdown-User .dropdown li a:hover {
+    /* color: black; */
+    background: #ffffff38;
+    border: 2px solid #1d8787;
+    border-radius: 15px;
+}.wrapper-dropdown-User .dropdown li button:hover {
+    /* color: black; */
+    background: #ffffff38;
+    border: 2px solid #1d8787;
+    border-radius: 15px;
+}
+
+.wrapper-dropdown-User .dropdown li button {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #8aa8bd;
+    border-bottom: 1px solid #e6e8ea;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,1);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}

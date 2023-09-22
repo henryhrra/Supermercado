@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20211020231301_septimaMigracion.cs" />
+    <Compile Remove="Migrations\20211020231301_septimaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211020232713_septimaMigracion.cs" />
+    <Compile Remove="Migrations\20211020232713_septimaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025005032_novenaMigracion.cs" />
+    <Compile Remove="Migrations\20211025005032_novenaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025010037_novenaMigracion.cs" />
+    <Compile Remove="Migrations\20211025010037_novenaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025011558_decimaMigracion.cs" />
+    <Compile Remove="Migrations\20211025011558_decimaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025020805_onceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025020805_onceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025045244_doceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025045244_doceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025205410_treceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025205410_treceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025205451_treceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025205451_treceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025205516_treceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025205516_treceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025205757_treceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025205757_treceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025205926_treceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025205926_treceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025210018_treceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025210018_treceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025210212_treceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025210212_treceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025210459_treceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025210459_treceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025211140_treceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025211140_treceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211025211733_treceavaMigracion.cs" />
+    <Compile Remove="Migrations\20211025211733_treceavaMigracion.Designer.cs" />
+    <Compile Remove="Migrations\20211108235040_Migracion-19.cs" />
+    <Compile Remove="Migrations\20211108235040_Migracion-19.Designer.cs" />
+    <Compile Remove="Migrations\20211108235200_Migracion-20.cs" />
+    <Compile Remove="Migrations\20211108235200_Migracion-20.Designer.cs" />
+    <Compile Remove="Migrations\20211108235503_Migracion-20.cs" />
+    <Compile Remove="Migrations\20211108235503_Migracion-20.Designer.cs" />
+    <Compile Remove="Migrations\20211111181532_Migracion-27.cs" />
+    <Compile Remove="Migrations\20211111181532_Migracion-27.Designer.cs" />
+    <Compile Remove="Migrations\20211111182921_Migracion-28.cs" />
+    <Compile Remove="Migrations\20211111182921_Migracion-28.Designer.cs" />
+    <Compile Remove="Migrations\20211111182950_Migracion-28.cs" />
+    <Compile Remove="Migrations\20211111182950_Migracion-28.Designer.cs" />
+    <Compile Remove="Migrations\20211112221249_Migracion-29.cs" />
+    <Compile Remove="Migrations\20211112221249_Migracion-29.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Supermercado.Models\SuperMercado.Models.csproj" />
+    <ProjectReference Include="..\Supermercado.Utilities\SuperMercado.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

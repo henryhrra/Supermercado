@@ -1,0 +1,206 @@
+﻿@model SuperMercado.Models.Proveedor
+@{
+    ViewData["Title"] = "DeTodo Admin Page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<nav id="sidebar" class="bg-dark">
+    <div class="menuStyky">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Agregar Proveedor</h3>
+        </div>
+
+    </div>
+    <form  method="POST" action="Javascript:;" accept-charset="UTF-8" data-Registrar="data-Registrar" id="RegistrarForm" novalidate>
+
+
+        <div class="px-4 py-5">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="">
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label asp-for="Nombre"></label>
+                        <small class="invalidCampo invalidName"></small>
+                    </div>
+                    <div>
+                        <input asp-for="Nombre" class="form-control" autocomplete="off" name="Nombre" maxlength="50" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label asp-for="Direccion"></label>
+                    </div>
+                    <div>
+                        <input asp-for="Direccion" type="text" name="Direccion" autocomplete="off" maxlength="100" />
+                        <span asp-validation-for="Direccion" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label asp-for="telefono"></label>
+                        <small class="invalidCampo invalidPhone"></small>
+                    </div>
+                    <div>
+                        <input asp-for="telefono" type="text" name="telefono" autocomplete="off" />
+                        <span asp-validation-for="telefono" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label asp-for="Giro"></label>
+                    </div>
+                    <div>
+                        <textarea asp-for="Giro" rows="4" style="width:100%;" name="Giro" maxlength="100"></textarea>
+                        <span asp-validation-for="Giro" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label asp-for="NombreContacto"></label>
+                        <small class="invalidCampo invalidName2"></small>
+                    </div>
+                    <div>
+                        <input asp-for="NombreContacto" name="NombreContacto" autocomplete="off">
+                        <span asp-validation-for="NombreContacto" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label asp-for="telefonoContacto"></label>
+                        <small class="invalidCampo invalidPhone2"></small>
+                    </div>
+                    <div>
+                        <input asp-for="telefonoContacto" name="telefonoContacto" autocomplete="off">
+                        <span asp-validation-for="telefonoContacto" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group mb-2">
+                    <div>
+                        <label asp-for="Foto"></label>
+                        <small class="invalidCampo invalidimg"></small>
+                    </div>
+                    <div class="d-flex align-items-center mb-4">
+                        <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1 subirFoto" data-multiple-caption="{count} Archivos seleccionados" multiple />
+
+                        <label class="labelFile" for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" /></svg> <span style="display:inline;">Subir Archivo&hellip;</span></label>
+
+
+                        <span id="cancelarArchivos" onclick="cancelarArchivos('#file-1',this)" class="icon-cancel"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
+
+                        <span asp-validation-for="Foto" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group d-none">
+                    <div class="position-relative">
+                        <label for="Url-imagen">Imagen en linea</label>
+                    </div>
+                    <div>
+                        <input for="Url-imagen" type="url" name="Url-imagen" value="1" autocomplete="off" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label asp-for="Correo"></label>
+                        <small class="invalidCampo invalidCorreo"></small>
+                    </div>
+                    <div>
+                        <input asp-for="Correo" type="text" name="Correo" autocomplete="off" />
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="position-relative">
+                        <label asp-for="pagina_Web"></label>
+                        <small class="invalidCampo invalidUrl"></small>
+                    </div>
+                    <div>
+                        <input asp-for="pagina_Web" type="text" name="pagina_Web" autocomplete="off" />
+                        <span asp-validation-for="pagina_Web" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="text-center">
+                        <button id="btnAdd" class="btn btn-success">Registrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</nav>
+
+
+<div id="Datalist">
+    <div class="row mx-3 justify-content-between">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 cajaOptiones">
+            <div>
+                <div class="buscador">
+                    <input type="search" value="" oninput="buscar(this.value.toLowerCase().trim().replaceAll('-',' '),'input')" placeholder="Buscar" />
+                    <span class="icon-search" onclick="buscar(this.parentElement.children[0].value.toLowerCase().trim().replaceAll('-',' '),'')"></span>
+                </div>
+                <input id="automaticoCheck" name="automaticoCheck" type="checkbox" checked="checked" />
+                <label for="automaticoCheck">Busqueda automatica</label>
+            </div>
+            <div id="ddContainer"></div>
+
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 cajaOptiones">
+            <div class="d-flex">
+                <div class="botonAgregar" id="sidebarCollapse">
+                    <span class="plusBTN"><span class="icon-plus"><span class="path1"></span><span class="path2"></span></span></span><span class="spanText">Proveedor</span>
+                </div>
+                <div class="d-flex botonAgregar">
+                    <input type="checkbox" value="" />
+                    <div id="ddCheckContainer"></div>
+                </div>
+            </div>
+            <div id="ddMostrarContainer"></div>
+
+        </div>
+
+    </div>
+    <div>
+        <div class="d-flex flex-sm-wrap-initial itemRowMenu mb-3 headTable">
+            <div class="col-md-1">
+                logo
+            </div>
+            <div class="d-md-none d-block d-sm-block d-lg-block col-md-1 text-center">
+                <span onclick="ordenar('proveedor-ID',this.id,this)" id="sort-ID-none">ID <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+            <div class="col-md-3 col-lg-2 text-center">
+                <span onclick="ordenar('proveedor-Nombre',this.id,this)" id="proveedor-Nombre-none">Nombre <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+            <div class="col-md-2 text-center">
+                <span onclick="ordenar('proveedor-Contacto',this.id,this)" id="sort-Contacto-none">Contacto <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+            <div class="col-md-2 text-center ">
+                <span onclick="ordenar('proveedor-Telefono-Contacto',this.id,this)" id="sort-Telefono-Contacto-none">Tel de Contacto<span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+            <div class="col-md-2 text-center">
+                <span onclick="ordenar('proveedor-Telefono',this.id,this)" id="sort-tel-none">Teléfono <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+            <div class="col-md-1 col-lg-2 text-center">
+                <span onclick="ordenar('proveedor-acciones',this.id,this)" id="sort-acc-none">Acciones <span><span class="icon-sort-none"><span class="path1"></span><span class="path2"></span></span></span></span>
+            </div>
+        </div>
+    </div>
+    <ul class="list" id="itemsTable"></ul>
+    <ul class="pagination"></ul>
+</div>
+
+<div class="overlay"></div>
+<div id="myModalPopUpImg" class="modalPopUpImg container-fluid" onclick="this.style.display='none'">
+    <span class="closePopUpImg">&times;</span>
+    <img class="modalPopUpImg-content" id="img01">
+    <div id="captionPopUpImg"></div>
+</div>

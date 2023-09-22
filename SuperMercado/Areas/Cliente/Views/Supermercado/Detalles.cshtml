@@ -1,0 +1,212 @@
+﻿@model SuperMercado.Models.Producto
+
+@{
+    ViewData["Title"] = "Detalles";
+    Layout = "~/Views/Shared/_LayoutDetalles.cshtml";
+}
+<section class="banner_slider banner_slide_half p-0">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item bg_light_green active">
+                <div class="banner_slide_content slide_content_wrap">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 col-sm-7">
+                                <div class="banner_content3 pl-lg-5 animate__animated animate__fadeIn" data-animation="fadeIn" data-animation-delay="0.4s" data-parallax="{&quot;y&quot;: 30, &quot;smoothness&quot;: 10}" style="transform:translate3d(0px, 0.01px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 0.01px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+                                    <h2 class="animation font_style1 animated animate__fadeInDown" data-animation="fadeInDown" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">@Model.Nombre</h2>
+                                    <p class="animate__animated animate__fadeInUp" data-animation="fadeInUp" data-animation-delay="0.6s" style="animation-delay: 0.6s; opacity: 1;">
+                                        <h4>
+                                            <pre class="overflow_hide font_style1">@Model.Descripcion</pre>
+                                        </h4>
+                                    </p>
+                                    @{
+                                        float f = 0;
+                                        float f1 = 0;
+                                        float f3 = 0;
+                                        string Existencias = "En Existencias";
+                                        if (Model.Existencias <= 0)
+                                        {
+                                            Existencias = "Agotado";
+                                        }
+                                    }
+
+                                    @if (Model.descuento == "" || Model.descuento == null)
+                                    {
+
+                                        string s = Model.Precio_de_Venta.ToString();
+                                        decimal iv = 0;
+                                        decimal.TryParse(s, out iv);
+                                        <h3>Precio: $@((iv).ToString("0.00"))</h3>
+                                    }
+                                    else
+                                    {
+                                        f = float.Parse(Model.Precio_de_Venta.ToString());
+                                        f1 = float.Parse(Model.descuento.ToString());
+                                        f3 = f - (f * f1);
+
+                                        <h3 style="text-decoration:line-through;color:crimson;">Precio: $@((f).ToString("0.00"))</h3>
+                                        <h3 style="color:dodgerblue;">Precio: <strong>$@((f3).ToString("0.00"))<small class="ml-2 text-success">  @(f1*100)%</small></strong></h3>
+                                    }
+                                    <h3 class="text-warning">Disponible:<h3> @Existencias</h3></h3>
+                                    <a class="js-cd-add-to-cart btn btn-default animate__animated animate__fadeInUp" data-id="@Model.idProducto" data-price="@f" href="#0" data-animation="fadeInUp" data-animation-delay="0.7s" style="animation-delay: 0.7s; opacity: 1;">Agregar al carrito</a>
+                                    <a class="btn btn-white animate__animated animate__fadeInUp" asp-controller="Home" asp-action="Index" data-animation="fadeInUp" data-animation-delay="0.8s" style="animation-delay: 0.8s; opacity: 1;">Ir a Inicio</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-5">
+                                <div id="picture-frame" class="banner_slider_img animate__animated animate__bounceInUp" data-animation="bounceInUp" data-animation-delay="0.4s" style="animation-delay: 0.4s; opacity: 1;">
+                                    <img class="bounceimg" id="imageZoom" src="@Model.Foto" data-src="@Model.Foto" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner_shape">
+                    <div class="shape22">
+                        <div class="animate__animated animate__slideInLeft" data-animation="slideInLeft" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
+                            <img data-parallax="{&quot;y&quot;: -30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape29.png" alt="shape51" style="transform:translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+                        </div>
+                    </div>
+                    <div class="shape23">
+                        <div class="animate__animated animate__slideInDown" data-animation="slideInDown" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
+                            <img data-parallax="{&quot;y&quot;: 30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape25.png" alt="shape52" style="transform:translate3d(0px, 0.019px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 0.019px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+                        </div>
+                    </div>
+                    <div class="shape24">
+                        <div class="animate__animated animate__bounceInDown" data-animation="bounceInDown" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
+                            <img data-parallax="{&quot;y&quot;: 30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape30.png" alt="shape53" style="transform:translate3d(0px, 0.019px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 0.019px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+                        </div>
+                    </div>
+                    <div class="shape25">
+                        <div class="animate__animated animate__slideInRight" data-animation="slideInRight" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
+                            <img data-parallax="{&quot;y&quot;: 30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape26.png" alt="shape54" style="transform:translate3d(0px, 0.019px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 0.019px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+                        </div>
+                    </div>
+                    <div class="shape26">
+                        <div class="animate__animated animate__bounceInUp" data-animation="bounceInUp" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
+                            <img data-parallax="{&quot;y&quot;: 30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape27.png" alt="shape55" style="transform:translate3d(0px, 0.019px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 0.019px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<div class="cd-cart cd-cart--empty js-cd-cart">
+    <a href="#0" class="cd-cart__trigger text-replace">
+
+        <ul class="cd-cart__count">
+            <!-- cart items count -->
+            <li>0</li>
+            <li>0</li>
+        </ul> <!-- .cd-cart__count -->
+    </a>
+
+    <div class="cd-cart__content">
+        <div class="cd-cart__layout">
+            <header class="cd-cart__header">
+                <h2>Cart</h2>
+                <span class="cd-cart__undo">Producto Eliminado. <a href="#0">Deshacer</a></span>
+            </header>
+
+            <div class="cd-cart__body">
+                <ul>
+                    <!-- products added to the cart will be inserted here using JavaScript -->
+                </ul>
+            </div>
+
+            <footer class="cd-cart__footer">
+                <a href="#0" onclick="registrarVenta(this)" class="cd-cart__checkout">
+                    <em>
+                        Listo - $<span>0</span>
+                        <svg class="icon icon--sm" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12" /><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 " /></g>
+                        </svg>
+                    </em>
+                </a>
+            </footer>
+        </div>
+    </div> <!-- .cd-cart__content -->
+</div>
+
+<section class="pb_70">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <div class="heading_s3 text-center animate__animated animate__fadeInDown pt-3" data-animation="fadeInDown" data-animation-delay="0.02s" style="animation-delay: 0.02s; opacity: 1;">
+
+                    <h1 class="text-info">¡Tambien podria Gustarte!</h1>
+                </div>
+                <h2 class="text-white animate__animated animate__fadeInUp" data-animation="fadeInUp" data-animation-delay="0.3s" style="animation-delay: 0.3s; opacity: 1;">
+                    <br class="d-none d-md-block">Aprovecha las ofertas en:
+                </h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="product_content">
+                    <ul class="nav nav-tabs justify-content-center animate__animated animate__fadeInUp" data-animation="fadeInUp" data-animation-delay="0.04s" role="tablist" style="animation-delay: 0.4s; opacity: 1; background: darkslategrey; border-radius: 15px; padding-top: 12px; color: #fff; padding-bottom: 12px;">
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab4" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false">
+
+                                <span class="icon-meat pr_icon4"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span></span>
+                                Carnes
+                            </a>
+                        </li>
+
+                    </ul>
+                    <div class="small_divider clearfix"></div>
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab1">
+                            <div class="row animate__animated animate__fadeInUp" data-animation="fadeInUp" data-animation-delay="0.05s" style="animation-delay: 0.05s; opacity: 1;" id="mainProductos">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="overlap_shape">
+    <div class="ol_shape8">
+        <div class="animate__animated animate__fadeInLeft" data-animation="fadeInLeft" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
+            <img data-parallax="{&quot;y&quot;: -30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape25.png" alt="shape25" style="transform:translate3d(0px, -10.03px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, -10.03px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+        </div>
+    </div>
+    <div class="ol_shape9">
+        <div class="animate__animated animate__fadeInLeft" data-animation="fadeInLeft" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
+            <img data-parallax="{&quot;y&quot;: 30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape26.png" alt="shape26" style="transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+        </div>
+    </div>
+    <div class="ol_shape10">
+        <div class="animate__animated animate__fadeInLeft" data-animation="fadeInLeft" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
+            <img data-parallax="{&quot;y&quot;: 30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape27.png" alt="shape27" style="transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+        </div>
+    </div>
+    <div class="ol_shape11">
+        <div class="animate__animated animate__fadeInRight" data-animation="fadeInRight" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
+            <img data-parallax="{&quot;y&quot;: 30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape28.png" alt="shape28" style="transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+        </div>
+    </div>
+    <div class="ol_shape12">
+        <div class="animate__animated animate__fadeInRight" data-animation="fadeInRight" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
+            <img data-parallax="{&quot;y&quot;: 30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape29.png" alt="shape29" style="transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+        </div>
+    </div>
+    <div class="ol_shape13">
+        <div class="animate__animated animate__fadeInRight" data-animation="fadeInRight" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
+            <img data-parallax="{&quot;y&quot;: 30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape30.png" alt="shape30" style="transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+        </div>
+    </div>
+    <div class="ol_shape14">
+        <div class="bounceimg" data-animation="fadeInRight" data-animation-delay="0.5s">
+            <img data-parallax="{&quot;y&quot;: 30, &quot;smoothness&quot;: 20}" src="~/imgs/imagenes/shape31.png" alt="shape31" style="transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0px, 10.05px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+        </div>
+    </div>
+</div>
+

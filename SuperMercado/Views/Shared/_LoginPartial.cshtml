@@ -1,0 +1,89 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SuperMercado.Utilities
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+
+}
+
+<ul class="d-flex align-items-center nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var user = await UserManager.GetUserAsync(User);
+        var displayName = "";
+        var imagePath = "..\\imgs\\NoFoto.jpg";
+        if (user != null)
+        {
+            displayName = user.Nombres.Split(' ').FirstOrDefault();
+            imagePath = user.Foto;
+        }
+        @if (User.IsInRole(CNT.User))
+        {
+            <span class="pr-2">@displayName</span>
+            <div class="wrapper-demo">
+                <div id="ddUser" class="wrapper-dropdown-User" tabindex="1">
+                    <span><img class="rounded rounded-circle" src="@imagePath" width="50" height="50" alt="Alternate Text" /></span>
+                    <ul class="dropdown">
+                        <li><a href="javascript:alertf('Perfil');"><i class="icon-envelope icon-large"></i>Perfil</a></li>
+                        <li><a hrefAdmin="/Cliente/Compras"><i class="icon-truck icon-large"></i>Mis Compras</a></li>
+              
+                        <li class="actionMenu" onclick="document.getElementById('salirSesion').click()">
+                            <a>Salir</a></li>
+        
+                    </ul>
+                </div>
+            </div>
+            <form class="" hidden asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="salirSesion" type="submit" class="margin-auto nav-link btn btn-link text-dark">Salir</button>
+            </form>
+        }
+
+        @if (User.IsInRole(CNT.Admin))
+        {
+            <span class="pr-2">@displayName</span>
+            <div class="wrapper-demo">
+                <div id="ddUser" class="wrapper-dropdown-User" tabindex="1">
+                    <span><img class="rounded rounded-circle" src="@imagePath" width="50" height="50" alt="Alternate Text" /></span>
+                    <ul class="dropdown">
+                        <li class="actionMenu">
+                            <a><i class="icon-envelope icon-large"></i>Perfil</a>
+                        </li>
+                        <li class="actionMenu"><a hrefAdmin="/Admin/admin"><i class="icon-envelope icon-large"></i>Administrar</a></li>
+
+                        <li class="actionMenu" onclick="irA('../')">
+                            <a><i class="icon-envelope icon-large"></i>Vista Cliente</a>
+                        </li>
+                        <li class="actionMenu" onclick="document.getElementById('salirSesion').click()">
+                            <a>Salir</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <form class="" hidden asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="salirSesion" type="submit" class="margin-auto nav-link btn btn-link text-dark">Salir</button>
+            </form>
+        }
+
+
+
+    }
+    else
+    {
+        <li class="nav-item actionMenu">
+            <a class="nav-link " asp-area="Identity" asp-page="/Account/Register"><i class="fas fa-user-plus"></i> <span class="d-none d-sm-none d-md-inline  d-lg-inline d-xl-inline">Registrarse</span></a>
+        </li>
+        <li class="nav-item actionMenu">
+
+            <a class="nav-link  animate__animated animate__bounce " asp-area="Identity" asp-page="/Account/Login">Iniciar <span class="d-none d-sm-none d-md-inline  d-lg-inline d-xl-inline">Sesión </span><i class="fas fa-sign-in-alt"></i></a>
+        </li>
+
+    }
+</ul>
+<script>
+
+    function irA(url) {
+        window.open(url, '_blank').focus();
+    }
+</script>
+

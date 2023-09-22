@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebShop</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/cliente.css" />
+    <link rel="stylesheet" href="~/css/animate.min.css" />
+    <script src="~/js/fontawesome.js"></script>
+</head>
+<body class="fondo">
+
+    <div class="wrapper">
+        <!-- Page Content  -->
+        <div id="content">
+
+            <header>
+                <nav class="cabecera">
+                    <div class="d-flex px-4 justify-content-between align-items-center">
+                        <a style="font-size:2rem;" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i> DeTodo</a>
+                        <h1 class="p-3 d-none d-md-block">Registrarse</h1>
+                        <a class="nav-link  animate__animated animate__bounce " asp-area="Identity" asp-page="/Account/Login">Iniciar Sesión <i class="fas fa-sign-in-alt"></i></a>
+                    </div>
+                </nav>
+            </header>
+            <h1 class="p-3 d-ms-block d-md-none text-center text-white">Registrarse</h1>
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="~/js/solid.js" asp-append-version="true"></script>
+    <script src="~/js/fontawesome.js" asp-append-version="true"></script>
+    <script src="~/js/jquery.mCustomScrollbar.concat.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

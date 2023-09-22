@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebShop</title>
+    <link rel="stylesheet" href="~/css/toastr.css" />
+    <link rel="stylesheet" href="~/css/adminlte.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/admin.css" />
+    <link rel="stylesheet" href="~/css/sweetalert.min.css" />
+    <link rel="stylesheet" href="~/css/icons.css" />
+    <link rel="stylesheet" href="~/css/selectStyle.css" />
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <script src="~/js/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script src="~/js/solid.js"></script>
+    <script src="~/js/list.js"></script>
+    <script src="~/js/fontawesome.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+</head>
+<body class="fondo Over">
+
+    <div class="loading">
+        <div class="book">
+            <div class="book__page"></div>
+            <div class="book__page"></div>
+            <div class="book__page"></div>
+        </div>
+    </div>
+    @{
+        var controller = ViewContext.RouteData.Values["Controller"];
+        var active = "";
+    }
+
+    <div class="row vh100">
+        <!-- Sidebar  -->
+        <!-- Page Content  -->
+        <div class="m-0 p-0 col-ms-1 col-md-1 col-lg-2 menuFondo">
+            <div class="d-flex flex-column">
+                <h3 style="height: 50px;text-align: center;">
+                    <img style="height: 179px;margin: -49px auto;width: auto;" src="~/imgs/logo.svg" alt="DeTodo" class="img-fluid d-sm-block d-md-none d-lg-block" />
+                    <img style="height: 179px;margin: -49px auto;width: auto;" src="~/imgs/Logo-alt.svg" alt="DeTodo" class="img-fluid img-fluid d-sm-none d-md-block d-lg-none" />
+                </h3>
+                <ul class="menusLateral">
+                    @{
+                        active = "";
+                        if ((String)controller == "admin") { active = "active"; }}
+                    <li class="@active">
+                        <a asp-controller="admin" asp-action="Index">
+                            <div class="float-left mr-2">
+                                <div class="float-left mr-2">
+                                    <span class="icon-home iconoMenu"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span></span>
+                                </div>
+                            </div>
+                            <span class="d-sm-none d-md-none d-lg-inline">Dashboard</span>
+                        </a>
+                    </li>
+                    @{
+                        active = "";
+                        if ((String)controller == "Proveedores") { active = "active"; }}
+                    <li class="@active">
+                        <a asp-controller="Proveedores" asp-action="Index">
+                            <span style="width:100%;">
+                                <div class="float-left mr-2">
+                                    <div class="float-left mr-2">
+                                        <span class="icon-boxes iconoMenu"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span></span>
+                                    </div>
+                                </div>
+                                <span class="d-sm-none d-md-none d-lg-inline">Proveedores</span>
+                            </span>
+                        </a>
+                    </li>
+                    @{
+                        active = "";
+                        if ((String)controller == "Categorias") { active = "active"; }}
+                    <li class="@active">
+                        <a asp-controller="Categorias" asp-action="Index">
+                            <span style="width:100%;">
+                                <div class="float-left mr-2">
+                                    <div class="float-left mr-2">
+                                        <span class="icon-options iconoMenu"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span></span>
+                                    </div>
+                                </div>
+                                <span class="d-sm-none d-md-none d-lg-inline">Categorias</span>
+                            </span>
+                        </a>
+                    </li>
+                    @{
+                        active = "";
+                        if ((String)controller == "Productos") { active = "active"; }}
+                    <li class="@active">
+                        <a asp-controller="Productos" asp-action="Index">
+                            <span style="width:100%;">
+                                <div class="float-left mr-2">
+                                    <div class="float-left mr-2">
+                                        <span class="icon-trolley iconoMenu"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span></span>
+                                    </div>
+                                </div>
+                                <span class="d-sm-none d-md-none d-lg-inline">Productos</span>
+                            </span>
+                        </a>
+                    </li>
+                    @{
+                        active = "";
+                        if ((String)controller == "Sucursales") { active = "active"; }}
+                    <li class="@active">
+                        <a asp-controller="Sucursales" asp-action="Index">
+
+                            <span style="width:100%;">
+                                <div class="float-left mr-2">
+                                    <div class="float-left mr-2">
+                                        <span class="icon-sucursal iconoMenu"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span></span>
+                                    </div>
+                                </div><span class="d-sm-none d-md-none d-lg-inline">Sucursales</span>
+                            </span>
+                        </a>
+                    </li>
+                    @{
+                        active = "";
+                        if ((String)controller == "Ventas") { active = "active"; }}
+                    <li class="@active">
+                        <a asp-controller="Ventas" asp-action="Index">
+
+                            <span style="width:100%;">
+                                <div class="float-left mr-2">
+                                    <div class="float-left mr-2">
+                                        <span class="icon-ventas iconoMenu"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span></span>
+                                    </div>
+                                </div>
+                                <span class="d-sm-none d-md-none d-lg-inline">Ventas</span>
+                            </span>
+                        </a>
+                    </li>
+                    @{
+                        active = "";
+                        if ((String)controller == "Compras") { active = "active"; }}
+                    <li class="@active">
+                        <a asp-controller="Compras" asp-action="Index">
+
+                            <span style="width:100%;">
+                                <div class="float-left mr-2">
+                                    <span class="icon-shopping-cart-svgrepo-com iconoMenu"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span></span>
+                                </div>
+                                <span class="d-sm-none d-md-none d-lg-inline">Compras</span>
+                            </span>
+                        </a>
+                    </li>
+                    @{
+                        active = "";
+                        if ((String)controller == "Slider_Descuentos") { active = "active"; }}
+                    <li class="@active">
+                        <a asp-controller="Slider_Descuentos" asp-action="Index">
+                            <span style="width:100%;">
+
+                                <div class="float-left mr-2 iconoMenu">
+                                    <img src="~/imgs/imagenes/menulateral/descuentos-sliders.png" />
+                                </div>
+                                <span class="d-sm-none d-md-none d-lg-inline">Sliders y Descuentos</span>
+                            </span>
+                        </a>
+                    </li>
+                    @{
+                        active = "";
+                        if ((String)controller == "Usuarios") { active = "active"; }}
+                    <li class="@active">
+                        <a asp-controller="Usuarios" asp-action="Index">
+                            <span style="width:100%;">
+
+                                <div class="float-left mr-2 iconoMenu">
+                                    <span class="icon-team iconoMenu"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span><span class="path30"></span><span class="path31"></span><span class="path32"></span><span class="path33"></span></span>
+                                </div>
+                                <span class="d-sm-none d-md-none d-lg-inline">Usuarios</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="Activatescroll m-0 p-0 col-ms-10 col-md-11 col-lg-10" id="content">
+            <header>
+                @{ var margen = "";}
+                @if (controller.ToString() != "Sucursales")
+                {
+                    margen = " mb-3";
+                }
+
+                <nav class="cabecera  px-5 py-2 @margen">
+                    <div class="d-flex justify-content-between">
+                        <h1>
+                            @if (controller.ToString() == "admin")
+                            {
+                                <span>Dashboard</span>
+                            }
+                            else
+                            {
+                                var titulo = controller.ToString();
+                                titulo = titulo.Replace("_", " Y ");
+                                <span>Administración de @titulo</span>
+                            }
+                        </h1>
+                        <partial name="_LoginPartial" />
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4">
+
+
+                        <ul class="navbar-nav flex-grow-1">
+                        </ul>
+                    </div>
+
+                </nav>
+            </header>
+            <div class="mx-2">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/slimscroll.js"></script>
+    <script src="~/js/toastr.min.js"></script>
+
+
+    <script src="~/js/@(controller).js"></script>
+
+    <script src="~/js/siteAdmin.js"></script>
+    <script src="~/js/inputFile.js"></script>
+    <script src="~/js/jsGlobal.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

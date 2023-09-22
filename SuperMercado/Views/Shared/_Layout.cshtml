@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebShop</title>
+    <link rel="stylesheet" href="~/css/animate.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Cliente/cliente.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/cliente.css" />
+    <link rel="stylesheet" href="~/css/icons.css" />
+    <link rel="stylesheet" href="~/css/Cliente/Carrito.css" />
+    <link rel="stylesheet" href="~/css/toastr.css" />
+    <script src="~/js/solid.js"></script>
+    <script src="~/js/fontawesome.js"></script>
+</head>
+<body class="fondo">
+
+    <div class="loading">
+        <div class="book">
+            <div class="book__page"></div>
+            <div class="book__page"></div>
+            <div class="book__page"></div>
+        </div>
+    </div>
+    @{
+        var controller = ViewContext.RouteData.Values["Controller"];
+        var active = "";
+    }
+
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div id="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h3><a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DeTodo</a></h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Para complacerle</p>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Inicio</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Categorias</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Categorias</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <div>
+                                <input type="search" value="" />
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">Categoria 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Categoria 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Categoria 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Sucursales</a>
+                </li>
+                <li>
+                    <a href="#">Contactanos</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="" id="content">
+            <header class="navnav">
+                <nav class="cabecera d-flex  px-5 py-2 ">
+
+
+                    <div class="d-flex align-items-center  col-md-4 col-sm-11 col-lg-4 col-xl-4 position-relative">
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img style="max-height:50px;" src="~/imgs/Logo.png" class="img-fluid" alt="Alternate Text" /></a>
+
+                        <button style="height: 36px" type="button" id="sidebarCollapse" class="btn btn-info">
+                            <span class="icon-list"></span>
+                        </button>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-none d-sm-none d-md-block d-lg-block d-xl-block">
+                        <div class="buscador">
+                            <form action="javascript:;" onsubmit="BuscarProducto(this)">
+                                <input name="Busqueda" type="search" value="" placeholder="¿Que necesitas?" />
+                                <button type="submit" class="icon-magnifying-glassDiv"><span class="icon-magnifying-glass"></span></button>
+                            </form>
+                        </div>
+                    </div>
+  
+
+                    <div style="display: flex; width: 100%; justify-content: end; align-items: center;">
+                        <partial name="_LoginPartial" />
+                    </div>
+
+                </nav>
+                <div class="cabecera d-sm-block d-md-none d-lg-none d-xl-none">
+                    <div class="buscador sss">
+                        <form action="javascript:;" onsubmit="BuscarProducto(this)">
+                            <input name="Busqueda" type="search" value="" placeholder="¿Que necesitas?" />
+                            <button type="submit" class="icon-magnifying-glassDiv"><span class="icon-magnifying-glass sss"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </header>
+            <div class="mx-2">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+    <script>
+        function BuscarProducto(form) {
+            if (form.Busqueda.value.lenght === 0) return
+  
+            window.location.href = "../cliente/Supermercado/Busqueda/" + form.Busqueda.value.trim();
+          
+        }
+
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script src="~/js/jquery-3.3.1.slim.min.js" asp-append-version="true"></script>*@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/toastr.min.js"></script>
+    <script src="~/js/solid.js" asp-append-version="true"></script>
+    <script src="~/js/fontawesome.js" asp-append-version="true"></script>
+    <script src="~/js/parallax.js"></script>
+    <script src="~/js/isotope.min.js"></script>
+    <script src="~/js/util.js"></script>
+    <script src="~/js/ManejoCarrito.js"></script>
+    @if (controller.ToString() == "Home")
+    {
+        controller = "supermercado";
+    }
+
+    <script src="~/js/@(controller).js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

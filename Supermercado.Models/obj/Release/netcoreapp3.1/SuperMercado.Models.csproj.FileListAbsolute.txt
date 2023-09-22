@@ -1,0 +1,10 @@
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.Models\bin\Release\netcoreapp3.1\SuperMercado.Models.deps.json
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.Models\bin\Release\netcoreapp3.1\SuperMercado.Models.dll
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.Models\bin\Release\netcoreapp3.1\SuperMercado.Models.pdb
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.Models\obj\Release\netcoreapp3.1\SuperMercado.Models.csproj.AssemblyReference.cache
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.Models\obj\Release\netcoreapp3.1\SuperMercado.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.Models\obj\Release\netcoreapp3.1\SuperMercado.Models.AssemblyInfoInputs.cache
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.Models\obj\Release\netcoreapp3.1\SuperMercado.Models.AssemblyInfo.cs
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.Models\obj\Release\netcoreapp3.1\SuperMercado.Models.csproj.CoreCompileInputs.cache
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.Models\obj\Release\netcoreapp3.1\SuperMercado.Models.dll
+D:\Detdead\Library\Documents\Unicaes\Ciclo 6\Periodo 3\Desarrollo de aplicaciones web\Supermercado\SuperMercado\Supermercado.Models\obj\Release\netcoreapp3.1\SuperMercado.Models.pdb

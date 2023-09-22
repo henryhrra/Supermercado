@@ -1,0 +1,342 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\SuperMercado\\SuperMercado.csproj": {}
+  },
+  "projects": {
+    "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.DataAccess\\SuperMercado.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.DataAccess\\SuperMercado.DataAccess.csproj",
+        "projectName": "SuperMercado.DataAccess",
+        "projectPath": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.DataAccess\\SuperMercado.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Detdead\\.nuget\\packages\\",
+        "outputPath": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Detdead\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Models\\SuperMercado.Models.csproj": {
+                "projectPath": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Models\\SuperMercado.Models.csproj"
+              },
+              "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Utilities\\SuperMercado.Utilities.csproj": {
+                "projectPath": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Utilities\\SuperMercado.Utilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Models\\SuperMercado.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Models\\SuperMercado.Models.csproj",
+        "projectName": "SuperMercado.Models",
+        "projectPath": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Models\\SuperMercado.Models.csproj",
+        "packagesPath": "C:\\Users\\Detdead\\.nuget\\packages\\",
+        "outputPath": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Detdead\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Utilities\\SuperMercado.Utilities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Utilities\\SuperMercado.Utilities.csproj",
+        "projectName": "SuperMercado.Utilities",
+        "projectPath": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Utilities\\SuperMercado.Utilities.csproj",
+        "packagesPath": "C:\\Users\\Detdead\\.nuget\\packages\\",
+        "outputPath": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.Utilities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Detdead\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\SuperMercado\\SuperMercado.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\SuperMercado\\SuperMercado.csproj",
+        "projectName": "SuperMercado",
+        "projectPath": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\SuperMercado\\SuperMercado.csproj",
+        "packagesPath": "C:\\Users\\Detdead\\.nuget\\packages\\",
+        "outputPath": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\SuperMercado\\obj\\publish\\win-x86\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Detdead\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.DataAccess\\SuperMercado.DataAccess.csproj": {
+                "projectPath": "D:\\Detdead\\Library\\Documents\\Unicaes\\Ciclo 6\\Periodo 3\\Desarrollo de aplicaciones web\\Supermercado\\SuperMercado\\Supermercado.DataAccess\\SuperMercado.DataAccess.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.17, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.21, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.21, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.21, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
+              "version": "[3.1.18, 3.1.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x86",
+              "version": "[3.1.18, 3.1.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
+              "version": "[3.1.18, 3.1.18]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
